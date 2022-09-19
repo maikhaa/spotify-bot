@@ -1,6 +1,7 @@
 'use strict';
 
 const outputYou = document.querySelector('.output-you');
+document.querySelector('.playlist').style.visibility = "hidden";
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
@@ -26,16 +27,44 @@ recognition.addEventListener('result', (e) => {
   outputYou.textContent = text;
   console.log('Confidence: ' + e.results[0][0].confidence);
 
-  fetch('https://maikha-c7aaatrzsq-ew.a.run.app/predict?text=' + text)
-  .then(function(response) {
-    return response.json();
-  }).then(function(data) {
-    console.log(data);
-  }).catch(function() {
-    console.log("Booo");
-  });
+  const getEmotion = fetch('https://maikha-c7aaatrzsq-ew.a.run.app/predict?text=' + text);
 
+  getEmotion
+  .then((response) => response.json())
+  .then((data) => {
+
+    const emotion = data['label'];
+    console.log(emotion);
+
+    switch(emotion) {
+      case 'joy':
+        document.querySelector('.playlist').src="https://open.spotify.com/embed/playlist/37i9dQZF1DWSf2RDTDayIx";
+        break;
+      case 'love':
+        // code block
+        break;
+      case 'anger':
+        // code block
+      break;
+      case 'fear':
+        // code block
+      break;
+      case 'surprise':
+        // code block
+      break;
+      case 'sadness':
+        document.querySelector('.playlist').src="https://open.spotify.com/embed/playlist/37i9dQZF1DX7qK8ma5wgG1";
+      break;
+    }
+    
+    document.querySelector('.playlist').style.visibility = "visible";
+  
+  })
+  .catch((error) => {
+    console.error(error);
+  });;
 });
+
 
 recognition.addEventListener('speechend', () => {
   recognition.stop();
