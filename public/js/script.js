@@ -25,7 +25,7 @@ recognition.addEventListener('result', (e) => {
   let text = e.results[last][0].transcript;
 
   outputYou.textContent = text;
-  console.log('Confidence: ' + e.results[0][0].confidence);
+  console.log('Speech recognition confidence: ' + e.results[0][0].confidence);
 
   const getEmotion = fetch('https://emotion-detection-api-c7aaatrzsq-ew.a.run.app/predict?text=' + text);
 
@@ -34,7 +34,10 @@ recognition.addEventListener('result', (e) => {
   .then((data) => {
 
     const emotion = data['label'];
-    console.log(emotion);
+    console.log('Emotion: ' + emotion);
+
+    const score = data['score'];
+    console.log('Emotion score: ' + score);
 
     switch(emotion) {
       case 'joy':
