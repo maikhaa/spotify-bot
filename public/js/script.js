@@ -27,7 +27,7 @@ recognition.addEventListener('result', (e) => {
   outputYou.textContent = text;
   console.log('Confidence: ' + e.results[0][0].confidence);
 
-  const getEmotion = fetch('https://maikha-c7aaatrzsq-ew.a.run.app/predict?text=' + text);
+  const getEmotion = fetch('https://emotion-detection-api-c7aaatrzsq-ew.a.run.app/predict?text=' + text);
 
   getEmotion
   .then((response) => response.json())
