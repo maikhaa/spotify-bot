@@ -38,22 +38,22 @@ recognition.addEventListener('result', (e) => {
 
     switch(emotion) {
       case 'joy':
-        document.querySelector('.playlist').src="https://open.spotify.com/embed/playlist/37i9dQZF1DWSf2RDTDayIx";
+        document.querySelector('.playlist').src="https://open.spotify.com/embed/playlist/66F0QrPzMPE9zCj8S1JZ1q?utm_source=generator";
         break;
       case 'love':
-        // code block
+        document.querySelector('.playlist').src="https://open.spotify.com/embed/playlist/64v2LytooaaE1b5ogu0uMo?utm_source=generator";
         break;
       case 'anger':
-        // code block
+        document.querySelector('.playlist').src="https://open.spotify.com/embed/playlist/37i9dQZF1DX08jcQJXDnEQ?utm_source=generator";
       break;
       case 'fear':
-        // code block
+        document.querySelector('.playlist').src="https://open.spotify.com/embed/playlist/31xXPz9MHntnxHvTQ7SYdu?utm_source=generator";
       break;
       case 'surprise':
-        // code block
+        document.querySelector('.playlist').src="https://open.spotify.com/embed/playlist/3CkJH2FzvJciO8UmkzHCMU?utm_source=generator";
       break;
       case 'sadness':
-        document.querySelector('.playlist').src="https://open.spotify.com/embed/playlist/37i9dQZF1DX7qK8ma5wgG1";
+        document.querySelector('.playlist').src="https://open.spotify.com/embed/playlist/37i9dQZF1DX7qK8ma5wgG1?utm_source=generator";
       break;
     }
     
